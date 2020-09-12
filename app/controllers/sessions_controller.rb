@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     post '/login' do
 
-    user = User.find_by_email(params[:email])
+     user = User.find_by_email(params[:email])
         if user && user.authenticate(params[:password])
             session[:id] = user.id
             redirect "/"
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
     delete '/logout' do
         session.clear
-        redirect "/"
+        erb :'/sessions/login'
     end
 
 end
