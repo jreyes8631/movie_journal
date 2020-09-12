@@ -15,19 +15,29 @@
  <body>
     <link rel="stylesheet" href="/stylesheets/main.css" />
   
-      
-    <div class="navbar">
-      <a href="/login">Log In</a>
-      <a href="/signup">Sign Up</a>
-   </div>
+    <div class="container">
+      <nav>
+      <% if !logged_in?%>
+        <a href="/login">Log In</a>
+        <a href="/signup">Sign Up</a>
+        <% else %>
+        <form method="post"  action="/logout"> 
+        <input type="hidden" name="_method"
+        value="delete">
+        <input type="submit" value="Log Out">
+        </form>
+        <%end%>
+      </nav>
+    </div>
+   
        
      
-      <%= styled_flash %>
-      <%= yield %>
+    <%= styled_flash %>
+    <%= yield %>
 
-      <footer class="branding">
-        <small>&copy; 2020 <strong>Movie Journal</strong></small>
-      </footer>
+    <footer class="branding">
+        <small style="display: inline-block; margin-left:50em">&copy; 2020 <strong>Movie Journal</strong></small>
+    </footer>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
