@@ -10,30 +10,24 @@
     <title>Movie Journal</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ </head>
 
+ <body>
     <link rel="stylesheet" href="/stylesheets/main.css" />
   
-      <nav>
-            <a href="/posts">Review</a>
-        <% if !logged_in? %>
-          <a href="/login">Log In</a>
-          <a href="/signup">Sign Up</a>
-        <% else %>
-          <a href="/posts/new">New Review</a>
-          <form method="post" action="/logout" style="display: inline-block;">
-            <input type="hidden" name="_method" value="delete" />
-            <input type="submit" value="Log Out" />
-          </form>
-        <% end %>
+      
+    <div class="navbar">
+      <a href="/login">Log In</a>
+      <a href="/signup">Sign Up</a>
+   </div>
        
-      </nav>
-        <%= styled_flash %>
-        <%= yield %>
+     
+      <%= styled_flash %>
+      <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>Movie Journal</strong></small>
       </footer>
-    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
