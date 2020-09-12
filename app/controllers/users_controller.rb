@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
   get '/signup' do
-    erb :signup
+    erb :'users/signup'
   end
 
   post 'users' do
@@ -12,13 +12,9 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       redirect "/"
     else
-      erb :signup
+      erb :'users/signup'
     end
   end
   
-  get '/users/:id' do
-    @user = User.find_by(id: params[:id])
-    erb :'/users/show'
-  end
 
 end
