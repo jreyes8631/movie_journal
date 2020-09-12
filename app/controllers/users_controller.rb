@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "user/#{@user.id}"
     else
-      erb :signup
+      redirect 'signup'
     end
 
   end
@@ -19,13 +19,14 @@ class UsersController < ApplicationController
     erb :signup
   end
 
-  post 'signup' do
+  post 'users' do
+    binding.pry
     @user = User.new(email: params[:email], password: params[:password])
     if @user.save
       session[:id] = @user.id
       redirect "user/#{@user.id}"
     else
-      erb :'signup'
+      erb :signup
     end
   end
   
