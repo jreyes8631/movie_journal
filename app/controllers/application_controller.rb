@@ -15,14 +15,23 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+
+    def current_user
+      @current_user = User.find_by(id: session[:user_id])
+    end
    
     def logged_in?
       !!current_user
     end
 
-    def current_user
-      @current_user = User.find_by(id: session[:user_id])
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:error] = "You must be logged in to view that page"
+        redirect request.referrer || "/login"
+      end
     end
+
+   
 
 
   end
