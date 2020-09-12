@@ -14,10 +14,17 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   
       <nav>
-        
-       
-          
-         
+            <a href="/posts">Review</a>
+        <% if !logged_in? %>
+          <a href="/login">Log In</a>
+          <a href="/signup">Sign Up</a>
+        <% else %>
+          <a href="/posts/new">New Review</a>
+          <form method="post" action="/logout" style="display: inline-block;">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" value="Log Out" />
+          </form>
+        <% end %>
        
       </nav>
         <%= styled_flash %>
