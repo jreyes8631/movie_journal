@@ -27,8 +27,7 @@ class MoviesController < ApplicationController
   end
     
   get "/movies/:id/edit" do
-    set_movie
-    redirect_if_not_authorized
+    @movie = Movie.find(params[:id])  
     erb :"/movies/edit.html"
   end
 
@@ -47,7 +46,7 @@ class MoviesController < ApplicationController
     set_movie
     redirect_if_not_authorized
     @movie.destroy
-    redirect "/movies"
+    redirect "/movies/show.html"
   end
 
   private 

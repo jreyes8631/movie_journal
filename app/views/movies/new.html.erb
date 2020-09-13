@@ -1,17 +1,6 @@
 <div class="wrapper">
 
-    <h2>New Movie</h2>
-
-    <% if @movie.errors.any? %>
-        <div id="error_explanation">
-        <h2><%= @movie.errors.count %> error(s) prohibited this Movie from being saved:</h2>
-    
-        <ul>
-        <% @movie.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-       <% end %>
-      </ul>
-   <% end %>
+    <h2 style="color: black;">Create a Movie</h2>
 
     <form method="post" action="/movies">
   <p>

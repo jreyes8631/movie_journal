@@ -6,6 +6,16 @@
     <p style="color: black;"> <%= @movie.user.email %></p>
     <p style="color: black;">Description: </p>
     <p style="color: black;"> <%= @movie.description%> </p>
+
+    <% if authorize_movie(@movie) %>
+  <div>
+    <a href="/movies/<%= @movie.id %>/edit"><button>Edit</button></a> 
+    <form method="post" action="/posts/<%= @movie.id %>" style="display: inline-block;">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" value="Delete" />
+    </form>
+  </div>
+<% end %>
    
 
 </div>
