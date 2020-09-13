@@ -6,7 +6,8 @@ class MoviesController < ApplicationController
     end
     
     get "/movies/new" do
-      
+      redirect_if_not_logged_in
+      @movie = Movie.new
         erb :"/movies/new.html"
     end
 end
