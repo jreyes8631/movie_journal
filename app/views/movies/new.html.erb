@@ -2,6 +2,17 @@
 
     <h2>New Movie</h2>
 
+    <% if @movie.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= @movie.errors.count %> error(s) prohibited this Movie from being saved:</h2>
+    
+        <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
     <form action="/movies" method="post">
     <p style="color: black;"><label for="title">Title</label>
     <input type="text" name="movie[title]" id="title"></p>
