@@ -15,13 +15,16 @@
  <body>
     <link rel="stylesheet" href="/stylesheets/main.css" />
   
-    <div class="container">
+    <div class="wrapper">
       <nav>
+      <a href="/movies">Movies</a>
+      
       <% if !logged_in? %>
         <a href="/login">Log In</a>
         <a href="/signup">Sign Up</a>
         <% else %>
-        <form method="post"  action="/logout"> 
+        <a href="/movies/new">New Movies</a>
+        <form method="post"  action="/logout" style="display: inline-block;"> 
           <input type="hidden" name="_method" value="delete"/>
           <input type="submit" value="Log Out"/>
         </form>
