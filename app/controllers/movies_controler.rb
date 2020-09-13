@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
     redirect_if_not_logged_in
     @movie = Movie.new
       erb :"/movies/new.html"
-  end
+  end 
   
   post "/movies" do
     redirect_if_not_logged_in
@@ -26,8 +26,21 @@ class MoviesController < ApplicationController
     erb :"/movies/show.html"
   end
     
-  get "/movies/:id" do
-     erb :"/movies/edit.html"
+  get "/movies/:id/edit" do
+    set_movie
+    redirect_if_not_authorized
+    erb :"/movies/edit.html"
+  end
+
+  patch "/movies/:id" do
+    set_movie
+    redirect_if_not_authorized
+    if @movie.update(title: params[:movie][:title], description: params[:movie][:description])
+      flash[:success] = "Post successfully updated"
+      redirect "/movies/#{@movie.id}"
+    else 
+      erb :"/movies/edit.html"
+    end
   end
 
   delete "/movies/:id" do

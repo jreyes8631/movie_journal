@@ -8,18 +8,21 @@
     
         <ul>
         <% @movie.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-    </ul>
-  <% end %>
+           <li><%= msg %></li>
+       <% end %>
+      </ul>
+   <% end %>
 
-    <form action="/movies" method="post">
-    <p style="color: black;"><label for="title">Title</label>
-    <input type="text" name="movie[title]" id="title"></p>
-
-    <p style="color: black;"><label for="description">Description</label>
-    <textarea type="description" name="movie[description]" id="description" rows="5"></textarea></p>
-
-    <input type="submit" value="Save" class="button">
-    </form>
+    <form method="post" action="/movies">
+  <p>
+    <div><label for="title" style="color: black;">Movie name</label></div>
+    <input id="title" type="text" name="movie[title]" value="<%= @movie.title %>" />
+  </p>
+  <p style="color: black;">
+    <div><label for="description" style="color: black;">Description</label></div>
+    <textarea rows="8" cols="45" id="description" type="text" name="movie[description]"><%= @movie.description %></textarea>
+  
+  </p>
+  <input type="submit" value="Create Movie" />
+</form>
 </div>

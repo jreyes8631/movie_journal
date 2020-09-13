@@ -1,8 +1,8 @@
 
 <div class="wrapper">
-  <h1> Movies </h1>
+  <h1 style="color: black;"> Movies </h1>
   <% @movies.each do |movie |%>
-  <p> <a href="/movies/<%= movie.id %> "><%= movie.title %></a>  </p>
+   <p> <a href="/movies/<%= movie.id %> "><%= movie.title %></a>  </p>
 
   <% end %>
 </div>
