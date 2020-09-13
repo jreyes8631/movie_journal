@@ -26,4 +26,7 @@ class MoviesController < ApplicationController
     erb :"/movies/show.html"
   end
     
+  get "/movies/:id" do
+     erb :"/movies/edit.html"
+  end
 end
