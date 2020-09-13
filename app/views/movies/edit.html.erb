@@ -1,4 +1,29 @@
 <div class="wrapper">
-  <h1> Edit Movie </h1>
+  <h1 style="color: black;"> Edit Movie </h1>
+
+  <% if @movie.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @movie.errors.count %> error(s) prohibited this post from being saved:</h2>
+ 
+    <ul>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method="post" action="/movies">
+  <p>
+    <div><label for="title" style="color: black;">Movie name</label></div>
+    <input id="title" type="text" name="movie[title]" value="<%= @movie.title %>" />
+  </p>
+  <p style="color: black;">
+    <div><label for="description" style="color: black;">Description</label></div>
+    <textarea rows="8" cols="45" id="description" type="text" name="movie[description]"><%= @movie.description %></textarea>
+  
+  </p>
+  <input type="submit" value="Update Movie" />
+</form>
   
 </div>
