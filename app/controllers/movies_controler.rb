@@ -29,4 +29,26 @@ class MoviesController < ApplicationController
   get "/movies/:id" do
      erb :"/movies/edit.html"
   end
+
+  delete "/movies/:id" do
+    set_movie
+    redirect_if_not_authorized
+    @movie.destroy
+    redirect "/movies"
+  end
+
+  private 
+
+  def set_movie 
+    @movie = Movie.find_by_id(params[:id])
+    if @ovie.nil?
+      flash[:error] = "Couldn't find a Movie with id: #{params[:id]}"
+      redirect "/movies"
+    end
+  end
+
+  def authorize_movie(movie)
+    current_user == movie.user
+  end
+
 end
