@@ -3,7 +3,7 @@ class CreateMovies < ActiveRecord::Migration
     create_table :movies do |t|
       t.string :title
       t.integer :user_id
-      t.string :description
+      t.text :description
 
       t.timestamps null: false
     end
