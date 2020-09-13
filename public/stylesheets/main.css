@@ -12,12 +12,11 @@
   }
 
   /* --- Welcome Page Styles --- */
-  body {
-    background-color: lightblue;
-    color: #333;
-    font-family: Sans-Serif;
-    line-height: 18px;
-  }
+ body {
+	color: #fff;
+	background: #3598dc;
+	font-family: 'Roboto', sans-serif;
+}
 
   .error {
     color: red;
@@ -47,7 +46,7 @@
     border-bottom: 2px solid #ccc;
     font-size: 24px;
     line-height: 36px;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
   }
 
   h3 {
@@ -87,8 +86,8 @@
   footer.branding {
     border-top: 2px solid #ccc;
     margin-top: 20px;
-    padding-top: 20px;
-    display: block;
+  
+    
     
   }
 }
@@ -120,6 +119,6 @@
 
   h2 {
     font-size: 18px;
-    line-height: 24px;
+    line-height: 12px;
   }
 }
