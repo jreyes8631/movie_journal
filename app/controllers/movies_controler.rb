@@ -27,12 +27,13 @@ class MoviesController < ApplicationController
   end
     
   get "/movies/:id/edit" do
-    @movie = Movie.find(params[:id])  
+    @movie = Movie.find(params[:id])
+    redirect_if_not_authorized
     erb :"/movies/edit.html"
   end
 
   patch "/movies/:id" do
-    set_movie
+    @movie = Movie.find(params[:id])
     redirect_if_not_authorized
     if @movie.update(title: params[:movie][:title], description: params[:movie][:description])
       flash[:success] = "Post successfully updated"
@@ -43,21 +44,26 @@ class MoviesController < ApplicationController
   end
 
   delete "/movies/:id" do
-    set_movie
+    @movie = Movie.find(params[:id]) 
     redirect_if_not_authorized
-    @movie.destroy
-    redirect "/movies/show.html"
+    if @movie.destroy
+     flash[:success] = "Movie successfully deleted"
+     redirect "/movies"
+    else
+      erb :"/movies/edit.html"
+    end
   end
 
   private 
 
-  def set_movie 
-    @movie = Movie.find_by_id(params[:id])
-    if @ovie.nil?
-      flash[:error] = "Couldn't find a Movie with id: #{params[:id]}"
-      redirect "/movies"
+    def redirect_if_not_authorized
+        redirect_if_not_logged_in
+        if !authorize_movie(@movie)
+        flash[:error] = "You don't have permission to do that action"
+        redirect "/movies"
+        end
     end
-  end
+
 
   def authorize_movie(movie)
     current_user == movie.user

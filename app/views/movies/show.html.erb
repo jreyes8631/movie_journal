@@ -10,7 +10,7 @@
     <% if authorize_movie(@movie) %>
   <div>
     <a href="/movies/<%= @movie.id %>/edit"><button>Edit</button></a> 
-    <form method="post" action="/posts/<%= @movie.id %>" style="display: inline-block;">
+    <form method="post" action="/movies/<%= @movie.id %>" style="display: inline-block;">
       <input type="hidden" name="_method" value="delete" />
       <input type="submit" value="Delete" />
     </form>
