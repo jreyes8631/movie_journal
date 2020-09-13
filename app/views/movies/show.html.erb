@@ -1,8 +1,11 @@
 <div class="wrapper">
 
-    <h1 style="color: black;"> <%= @movie.title %> </h1>
+    <h1 style="color: black;"> Movie: <%= @movie.title %> </h1>
 
-    <p style="color: black;"> <%= @movie.user.email %> <p>
+    <p style="color: black;">Created by:<p>
+    <p style="color: black;"> <%= @movie.user.email %></p>
+    <p style="color: black;">Description: </p>
+    <p style="color: black;"> <%= @movie.description%> </p>
+   
 
-   <p style="color: black;"> <%= @movie.description%> </p>
 </div>
