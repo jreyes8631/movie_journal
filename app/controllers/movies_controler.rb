@@ -13,8 +13,8 @@ class MoviesController < ApplicationController
   
   post "/movies" do
     redirect_if_not_logged_in
-    @movie = current_user.movies.build(title: params[:post][:title], content: params[:post][:content])
-    if @post.save
+    @movie = current_user.movies.build(title: params[:movie][:title], description: params[:movie][:description])
+    if @movie.save
       redirect "/movies"
     else
       erb :"/movies/new.html"
