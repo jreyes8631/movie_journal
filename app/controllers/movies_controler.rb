@@ -10,4 +10,6 @@ class MoviesController < ApplicationController
       @movie = Movie.new
         erb :"/movies/new.html"
     end
+
+    
 end

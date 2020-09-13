@@ -1,5 +1,8 @@
-This is the movie index
-<% @Movies. each do |movie |%>
-  <p> <a href="/movies/<%= post.id %> "><% movie.title %></a>  </p>
 
-<% end %>
+<div class="wrapper">
+  <h1> Movies </h1>
+  <% @movies.each do |movie |%>
+  <p> <a href="/movies/<%= movie.id %> "><%= movie.title %></a>  </p>
+
+  <% end %>
+  </div>
