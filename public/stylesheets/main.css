@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
  body {
-	color: rgb(134, 134, 134);
+	color: rgb(250, 244, 244);
 	background: #3598dc;
 	font-family: 'Roboto', sans-serif;
 }
@@ -27,7 +27,7 @@
   }
 
   .wrapper {
-    background: rgb(131, 131, 131);
+    background: rgb(236, 235, 235);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -40,6 +40,7 @@
   h1 {
     font-size: 36px;
     line-height: 54px;
+    color: black;
   }
 
   h2 {
@@ -47,15 +48,18 @@
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 0px;
+    color: black;
   }
 
   h3 {
     font-size: 18px;
     line-height: 36px;
+    color: black;
   }
 
   p {
     margin-bottom: 18px;
+    color: black;
   }
 
   .main {
@@ -115,10 +119,12 @@
   h1 {
     font-size: 24px;
     line-height: 36px;
+    color: black;
   }
 
   h2 {
     font-size: 18px;
     line-height: 12px;
+    color: black;
   }
 }
