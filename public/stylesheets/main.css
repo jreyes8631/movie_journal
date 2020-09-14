@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
  body {
-	color: #fff;
+	color: rgb(134, 134, 134);
 	background: #3598dc;
 	font-family: 'Roboto', sans-serif;
 }
@@ -27,7 +27,7 @@
   }
 
   .wrapper {
-    background: #fff;
+    background: rgb(131, 131, 131);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);

@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     redirect_if_not_authorized
     if @movie.update(title: params[:movie][:title], description: params[:movie][:description])
-      flash[:success] = "Post successfully updated"
+      flash[:success] = "Movie successfully updated"
       redirect "/movies/#{@movie.id}"
     else 
       erb :"/movies/edit.html"
