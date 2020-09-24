@@ -11,7 +11,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    @movies = Movie.all
+    erb :"/movies/index.html"
+
   end
 
  private

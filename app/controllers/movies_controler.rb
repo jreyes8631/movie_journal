@@ -65,8 +65,8 @@ class MoviesController < ApplicationController
     end
 
 
-  def authorize_movie(movie)
-    current_user == movie.user
-  end
+    def authorize_movie(movie)
+      current_user == movie.user
+    end
 
 end
