@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect "/movies"
     else
+      @error = "Ops, try again"
       erb :"/movies/new.html"
     end
   end
@@ -38,7 +39,8 @@ class MoviesController < ApplicationController
     if @movie.update(title: params[:movie][:title], description: params[:movie][:description])
       flash[:success] = "Movie successfully updated"
       redirect "/movies/#{@movie.id}"
-    else 
+    else
+      @error = "Ops, try again"
       erb :"/movies/edit.html"
     end
   end

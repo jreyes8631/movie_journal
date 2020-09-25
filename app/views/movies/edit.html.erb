@@ -1,5 +1,6 @@
 <div class="wrapper">
   <h1 style="color: black;"> Edit Movie </h1>
+  <h2 style="color: red;"> <%= @error %> </h2>
 
  <form method="post" action="/movies/<%= @movie.id %>">
  <input type="hidden" name="_method" value="patch"/>
