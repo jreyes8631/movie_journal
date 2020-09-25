@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(params)
     if @user.save
       session[:id] = @user.id
+      flash[:success] = "User successfully created"
       redirect "/users/#{@user.id}"
     else 
       @error = "User name or email already taken"
@@ -17,9 +18,13 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    redirect_if_not_logged_in
-    @user = User.find_by(id: params[:id])
-    erb :'/users/show'
+    if
+     @user = User.find_by(id: params[:id])
+     erb :'/users/show'
+    else
+      @error = "That user does not exist"
+      redirect '/'
+    end
   end
 
 end
