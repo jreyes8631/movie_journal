@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
 
   get "/movies" do
-      @movies = Movie.all
-      erb :"/movies/index.html"
+    @movies = Movie.all
+    erb :"/movies/index.html"
   end
   
   get "/movies/new" do
@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
   end
 
   patch "/movies/:id" do
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])  
     redirect_if_not_authorized
     if @movie.update(title: params[:movie][:title], description: params[:movie][:description])
       flash[:success] = "Movie successfully updated"
@@ -56,17 +56,17 @@ class MoviesController < ApplicationController
 
   private 
 
-    def redirect_if_not_authorized
-        redirect_if_not_logged_in
-        if !authorize_movie(@movie)
-        flash[:error] = "You don't have permission to do that action"
-        redirect "/movies"
-        end
+  def redirect_if_not_authorized
+    redirect_if_not_logged_in
+    if !authorize_movie(@movie)
+    flash[:error] = "You don't have permission to do that action"
+    redirect "/movies"
     end
+  end
 
 
-    def authorize_movie(movie)
-      current_user == movie.user
-    end
+  def authorize_movie(movie)
+    current_user == movie.user
+  end
 
 end
